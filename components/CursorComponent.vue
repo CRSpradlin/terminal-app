@@ -1,14 +1,14 @@
 <script setup>
-const content = ref("");
+const content = ref('');
 setInterval(() => {
     if (content.value.length) {
-        content.value = "";
+        content.value = '';
     } else {
-        content.value = "|";
+        content.value = '|';
     }
 }, 500);
 </script>
 
 <template>
-    <span>{{content}}</span>
+  <span>{{ content }}</span>
 </template>

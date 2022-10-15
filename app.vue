@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import './assets/css/tailwind.css'
-import Console from './components/console.vue';
+import './assets/css/tailwind.css';
 const config = useAppConfig();
 </script>
 
 <template>
+  <title>{{ config.title }}</title>
   <div class="w-full h-full">
-    <Console />
+    <ConsoleComponent />
   </div>
 </template>

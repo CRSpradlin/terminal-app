@@ -1,7 +1,7 @@
-import { Ref } from "nuxt/dist/app/compat/vue-demi";
+import { Ref } from 'nuxt/dist/app/compat/vue-demi';
 
 export const Clear = (historyElement: HTMLElement, terminalLineElement: HTMLElement, inputRef: Ref<string>) => {
     historyElement.innerHTML = '';
     inputRef.value = '';
-    terminalLineElement.classList.add('hidden')
-}
+    terminalLineElement.classList.add('hidden');
+};
