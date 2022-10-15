@@ -7,5 +7,5 @@ export default defineNuxtConfig({
             }
         }
     },
-    buildModules: ['@nuxtjs/tailwindcss'],
-})
+    buildModules: ['@nuxtjs/tailwindcss']
+});

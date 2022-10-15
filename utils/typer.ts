@@ -13,7 +13,7 @@ export class Typer {
     constructor (outputElement: HTMLElement) {
         this.outputElement = outputElement;
         this.typerQueue = [];
-    };
+    }
 
     push = (newTyperItem: TyperItem) => {
         this.typerQueue.push(newTyperItem);
@@ -29,12 +29,11 @@ export class Typer {
                 }
             }
             if (typerItem.value) {
-                for (let i=0; i<typerItem.value.length; i++) {
+                for (let i = 0; i < typerItem.value.length; i++) {
                     newOutputEntry.innerHTML += typerItem.value[i];
                     await Delay(15);
                 }
             }
         }
     };
-    
 }
