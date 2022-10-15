@@ -4,7 +4,7 @@
 
 @layer base {
     html {
-        font-family: Verdana, system-ui, sans-serif;
+        font-family: courier, monospace;
         background-color: black;
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
