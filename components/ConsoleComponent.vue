@@ -1,4 +1,6 @@
 <script setup>
+const history = useHistory();
+
 const awaitingInput = ref(true);
 const input = ref('');
 if (process.client) {
@@ -9,7 +11,7 @@ if (process.client) {
         switch (key.toLowerCase()) {
         case 'enter':
             awaitingInput.value = false;
-            await processEnterKeyDown(document, input);
+            await processEnterKeyDown(document, input, history);
             awaitingInput.value = true;
             break;
         case 'backspace':

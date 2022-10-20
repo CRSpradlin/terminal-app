@@ -2,7 +2,7 @@ import { Ref } from 'nuxt/dist/app/compat/vue-demi';
 import { Typer } from '../utils/typer';
 import { ExecuteCommand, ExecutionResultProps } from '../utils/execute_command';
 
-export const processEnterKeyDown = async (document: Document, inputRef: Ref<string>) => {
+export const processEnterKeyDown = async (document: Document, inputRef: Ref<string>, historyStateRef: Ref<string[]>) => {
     let executionResult: ExecutionResultProps;
     const outputElement: HTMLElement = document.getElementById('output');
     const terminalLineElement: HTMLElement = document.getElementById('terminal-line');
@@ -11,7 +11,7 @@ export const processEnterKeyDown = async (document: Document, inputRef: Ref<stri
 
     if (inputRef.value.trim().length > 0) {
         // Excute App
-        executionResult = await ExecuteCommand(inputRef, typer, historyElement, terminalLineElement);
+        executionResult = await ExecuteCommand(inputRef, historyStateRef, typer, historyElement, terminalLineElement);
     }
 
     // Needed for re-typing prompt
