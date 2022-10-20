@@ -5,3 +5,5 @@ export const Clear = (historyElement: HTMLElement, terminalLineElement: HTMLElem
     inputRef.value = '';
     terminalLineElement.classList.add('hidden');
 };
+
+export const HelpString = 'Clears the terminal screen.';

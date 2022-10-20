@@ -5,3 +5,5 @@ export const Echo = (inputArray: string[], typer: Typer) => {
     typer.push({ itemType: 'span', value: inputArray.join(' ') });
     typer.push({ itemType: 'br' });
 };
+
+export const HelpString = 'Re-displays the words following the command.';

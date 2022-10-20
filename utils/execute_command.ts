@@ -3,6 +3,7 @@ import { Typer } from './typer';
 import { Clear } from '~~/console_apps/clear';
 import { CMDNotFound } from '~~/console_apps/cmd_not_found';
 import { Echo } from '~~/console_apps/echo';
+import { Help } from '~~/console_apps/help';
 
 export type ExecutionResultProps = {
     displayMostRecentCommand: boolean,
@@ -18,13 +19,16 @@ export const ExecuteCommand = async (inputRef: Ref<string>, typer: Typer, histor
     };
     const inputArray = inputValue.split(' ');
     switch (inputArray[0].toLowerCase()) {
-    case 'echo':
-        Echo(inputArray, typer);
-        break;
     case 'clear':
         Clear(historyElement, terminalLineElement, inputRef);
         resultProps.displayMostRecentCommand = false;
         resultProps.redisplayTerminalLine = true;
+        break;
+    case 'echo':
+        Echo(inputArray, typer);
+        break;
+    case 'help':
+        Help(typer);
         break;
     default:
         CMDNotFound(inputArray, typer);
