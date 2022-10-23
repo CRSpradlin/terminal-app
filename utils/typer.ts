@@ -31,7 +31,8 @@ export class Typer {
             if (typerItem.value) {
                 for (let i = 0; i < typerItem.value.length; i++) {
                     newOutputEntry.innerHTML += typerItem.value[i];
-                    await Delay(15);
+                    await Delay(10);
+                    window.scrollTo(0, document.body.scrollHeight);
                 }
             }
         }
