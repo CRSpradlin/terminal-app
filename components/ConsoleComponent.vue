@@ -15,10 +15,19 @@ if (process.client) {
             awaitingInput.value = true;
             break;
         case 'backspace':
-            processBackspaceKeyDown(input);
+            processBackspaceKeyDown(input, history);
+            break;
+        case 'arrowup':
+            event.preventDefault();
+            processUpArrowKeyDown(input, history);
+            break;
+        case 'arrowdown':
+            event.preventDefault();
+            processDownArrowKeyDown(input, history);
             break;
         default:
             if (key.length === 1) { input.value += event.key; }
+            history.value.savedEdit = input.value;
         }
     });
 }

@@ -1,8 +1,9 @@
 import { Ref } from 'nuxt/dist/app/compat/vue-demi';
 import { Typer } from '../utils/typer';
 import { ExecuteCommand, ExecutionResultProps } from '../utils/execute_command';
+import { HistoryState } from './states';
 
-export const processEnterKeyDown = async (document: Document, inputRef: Ref<string>, historyStateRef: Ref<string[]>) => {
+export const processEnterKeyDown = async (document: Document, inputRef: Ref<string>, historyStateRef: Ref<HistoryState>) => {
     let executionResult: ExecutionResultProps;
     const outputElement: HTMLElement = document.getElementById('output');
     const terminalLineElement: HTMLElement = document.getElementById('terminal-line');
@@ -42,10 +43,33 @@ export const processEnterKeyDown = async (document: Document, inputRef: Ref<stri
     outputElement.innerHTML = '';
 
     inputRef.value = '';
+    historyStateRef.value.index = historyStateRef.value.list.length;
+    historyStateRef.value.savedEdit = '';
 };
 
-export const processBackspaceKeyDown = (inputRef: Ref<string>) => {
+export const processBackspaceKeyDown = (inputRef: Ref<string>, historyStateRef: Ref<HistoryState>) => {
     if (inputRef.value.length > 0) {
         inputRef.value = inputRef.value.slice(0, inputRef.value.length - 1);
+    }
+    historyStateRef.value.savedEdit = inputRef.value;
+    historyStateRef.value.index = historyStateRef.value.list.length;
+};
+
+export const processUpArrowKeyDown = (inputRef: Ref<string>, historyStateRef: Ref<HistoryState>) => {
+    if (historyStateRef.value.index > 0) {
+        historyStateRef.value.index--;
+    }
+    inputRef.value = historyStateRef.value.list[historyStateRef.value.index];
+};
+
+export const processDownArrowKeyDown = (inputRef: Ref<string>, historyStateRef: Ref<HistoryState>) => {
+    if (historyStateRef.value.index < historyStateRef.value.list.length) {
+        historyStateRef.value.index++;
+    }
+
+    if (historyStateRef.value.index === historyStateRef.value.list.length) {
+        inputRef.value = historyStateRef.value.savedEdit;
+    } else {
+        inputRef.value = historyStateRef.value.list[historyStateRef.value.index];
     }
 };

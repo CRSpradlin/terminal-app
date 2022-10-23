@@ -5,6 +5,7 @@ import { CMDNotFound } from '~~/console_apps/cmd_not_found';
 import { Echo } from '~~/console_apps/echo';
 import { Help } from '~~/console_apps/help';
 import { History } from '~~/console_apps/history';
+import { HistoryState } from '~~/composables/states';
 
 export type ExecutionResultProps = {
     displayMostRecentCommand: boolean,
@@ -12,9 +13,11 @@ export type ExecutionResultProps = {
 }
 
 // eslint-disable-next-line require-await
-export const ExecuteCommand = async (inputRef: Ref<string>, historyStateRef: Ref<string[]>, typer: Typer, historyElement: HTMLElement, terminalLineElement: HTMLElement) => {
-    const inputValue = inputRef.value;
-    historyStateRef.value.push(inputValue);
+export const ExecuteCommand = async (inputRef: Ref<string>, historyStateRef: Ref<HistoryState>, typer: Typer, historyElement: HTMLElement, terminalLineElement: HTMLElement) => {
+    const inputValue = inputRef.value.trim();
+    if (inputValue !== '') {
+        historyStateRef.value.list.push(inputValue);
+    }
 
     const resultProps: ExecutionResultProps = {
         displayMostRecentCommand: true,
