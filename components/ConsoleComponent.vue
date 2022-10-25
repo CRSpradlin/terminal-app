@@ -34,7 +34,10 @@ if (process.client) {
 </script>
 
 <template>
-  <div class="text-stone-200 break-all">
+  <div class="text-stone-200 flex flex-col break-all h-screen">
+    <div class="flex flex-grow min-h-fit m-auto">
+      <HomeContent />
+    </div>
     <div id="history" />
     <span id="terminal-line">
       <span class="text-green-500">server@crspradlin</span>:<span class="text-blue-500">~</span>$ {{ input }}<CursorComponent v-if="awaitingInput" /><br>
