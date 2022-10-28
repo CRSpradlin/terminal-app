@@ -5,9 +5,9 @@
 <template>
   <div class="flex flex-col content-center">
     <div class="flex flex-row m-auto">
-      <div class="flex flex-col m-auto">
+      <div class="mt-[80px] sm:mt-0 flex flex-col m-auto">
         <span class="flex flex-row m-auto">
-          <span class="text-7xl p-8">Christopher Spradlin</span>
+          <span class="text-2xl md:text-5xl xl:text-7xl p-8">Christopher Spradlin</span>
         </span>
         <span class="flex flex-row m-auto">
           <a class="m-2 p-2 border-2 rounded-full border-slate-50 text-slate-50 hover:bg-slate-50 hover:text-slate-800" href="https://github.com/crspradlin/" target="_blank">
