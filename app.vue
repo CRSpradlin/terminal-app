@@ -5,7 +5,7 @@ const config = useAppConfig();
 
 <template>
   <title>{{ config.title }}</title>
-  <div class="w-full h-full">
+  <div class="mt-[-80px] sm:mt-0 w-full h-full min-w-[300px]">
     <ConsoleComponent />
   </div>
 </template>
