@@ -1,8 +1,8 @@
 <script setup>
 const history = useHistory();
 
-const handleKeyboardToggle = () => {
-    document.getElementById('hiddenInput').focus();
+const handleMobileKeyboardToggle = () => {
+    document.getElementById('mobileInput').focus();
 };
 
 const awaitingInput = ref(true);
@@ -43,10 +43,10 @@ if (process.client) {
       <HomeContent />
     </div>
     <div id="history" />
-    <span id="terminal-line">
-      <span class="text-green-500" @click="handleKeyboardToggle">server@crspradlin</span>:<span class="text-blue-500">~</span>$ {{ input }}<CursorComponent v-if="awaitingInput" /><br>
+    <span id="terminal-line" @click="handleMobileKeyboardToggle">
+      <span class="text-green-500">server@crspradlin</span>:<span class="text-blue-500">~</span>$ {{ input }}<CursorComponent v-if="awaitingInput" /><br>
     </span>
-    <input id="hiddenInput" class="h-0" type="text">
+    <input id="mobileInput" class="h-0" type="text">
     <span id="output" />
     <div name="classes needed" class="hidden text-red-500 text-green-500" />
   </div>
