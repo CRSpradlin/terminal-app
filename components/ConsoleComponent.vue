@@ -32,6 +32,7 @@ if (process.client) {
         default:
             if (key.length === 1) { input.value += event.key; }
             history.value.savedEdit = input.value;
+            history.value.index = history.value.list.length;
         }
     });
 }
