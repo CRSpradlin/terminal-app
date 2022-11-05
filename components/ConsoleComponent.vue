@@ -49,6 +49,5 @@ if (process.client) {
     </span>
     <input id="mobileInput" class="h-0" type="text">
     <span id="output" />
-    <div name="classes needed" class="hidden text-red-500 text-green-500" />
   </div>
 </template>

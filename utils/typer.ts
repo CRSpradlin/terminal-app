@@ -1,9 +1,10 @@
 import { Delay } from './helpers';
 
 export type TyperItem = {
-    itemType: 'br' | 'span',
+    itemType: 'a' | 'br' | 'span',
     value?: string,
     classes?: string[],
+    href?: string
 }
 
 export class Typer {
@@ -22,6 +23,12 @@ export class Typer {
     write = async () => {
         for (const typerItem of this.typerQueue) {
             const newOutputEntry = document.createElement(typerItem.itemType);
+            if (typerItem.itemType === 'a' && typerItem.href !== undefined) {
+                // Did this because type script was throwing errors about href not being a property of element.
+                // We are checking element type before hand so we should be good.
+                // eslint-disable-next-line dot-notation
+                newOutputEntry['href'] = typerItem.href;
+            }
             this.outputElement.appendChild(newOutputEntry);
             if (typerItem.classes) {
                 for (const cssClass of typerItem.classes) {
