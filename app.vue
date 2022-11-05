@@ -9,4 +9,5 @@ const config = useAppConfig();
   <div class="relative bg-transparent mt-[-80px] sm:mt-0 w-full h-full min-w-[300px]">
     <ConsoleComponent />
   </div>
+  <div name="classes needed" class="hidden text-red-500 text-green-500 underline" />
 </template>

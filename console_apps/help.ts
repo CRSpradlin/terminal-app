@@ -1,4 +1,5 @@
 
+import * as aboutApp from './about';
 import * as clearApp from './clear';
 import * as echoApp from './echo';
 import * as historyApp from './history';
@@ -8,6 +9,7 @@ import { Typer } from '~~/utils/typer';
 export const HelpString = 'Shows all the available commands.';
 
 const appHelpStrings = {
+    about: aboutApp.HelpString,
     clear: clearApp.HelpString,
     echo: echoApp.HelpString,
     help: HelpString,

@@ -2,6 +2,7 @@ import { Ref } from 'nuxt/dist/app/compat/vue-demi';
 import { Typer } from './typer';
 import { Clear } from '~~/console_apps/clear';
 import { CMDNotFound } from '~~/console_apps/cmd_not_found';
+import { About } from '~~/console_apps/about';
 import { Echo } from '~~/console_apps/echo';
 import { Help } from '~~/console_apps/help';
 import { History } from '~~/console_apps/history';
@@ -26,6 +27,9 @@ export const ExecuteCommand = async (inputRef: Ref<string>, historyStateRef: Ref
 
     const inputArray = inputValue.split(' ');
     switch (inputArray[0].toLowerCase()) {
+    case 'about':
+        About(typer);
+        break;
     case 'clear':
         Clear(historyElement, terminalLineElement, inputRef);
         resultProps.displayMostRecentCommand = false;
