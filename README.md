@@ -1,6 +1,6 @@
 # CRSpradlin Terminal
 Interactive personal portfolio website.
-> Currently deployed at: [crspradlin.org](https://crspradlin.org)
+> Currently deployed at: [crspradlin.dev](https://crspradlin.dev)
  
 The goal of this web application is to create a similar experience as if in a shell terminal. While components can be used and forked to have other create their own terminal commands and functionality, I have wrapped some of the major components into a new portfolio website to replace the recently archived [CRSpradlin.github.io](https://github.com/CRSpradlin/CRSpradlin.github.io).
  
